@@ -11,15 +11,118 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <!-- TAILWIND CDN VERSI 3 (SOLUSI UTAMA) -->
+        <script src="https://cdn.tailwindcss.com"></script>
 
-        <!-- Tailwind CDN sebagai backup -->
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <!-- Custom Tailwind Config untuk warna -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            green: {
+                                50: '#f0fdf4',
+                                100: '#dcfce7',
+                                200: '#bbf7d0',
+                                300: '#86efac',
+                                400: '#4ade80',
+                                500: '#22c55e',
+                                600: '#16a34a',
+                                700: '#15803d',
+                                800: '#166534',
+                                900: '#14532d',
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
         <!-- Alpine.js untuk dropdown -->
         <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+        <!-- CUSTOM CSS UNTUK FIX GRADIENT DAN GRID -->
+        <style>
+            /* FIX: Gradient hijau untuk hero section */
+            .hero-gradient {
+                background: linear-gradient(to right, #10b981 0%, #059669 100%) !important;
+            }
+
+            /* FIX: Grid columns untuk Tailwind CDN */
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+
+            .grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            }
+
+            .grid-cols-7 {
+                grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+            }
+
+            /* FIX: Responsive grid */
+            @media (min-width: 768px) {
+                .md\:grid-cols-4 {
+                    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .lg\:grid-cols-7 {
+                    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+                }
+
+                .lg\:grid-cols-4 {
+                    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                }
+            }
+
+            /* FIX: Container class */
+            .container {
+                width: 100% !important;
+                margin-right: auto !important;
+                margin-left: auto !important;
+                padding-right: 1rem !important;
+                padding-left: 1rem !important;
+            }
+
+            @media (min-width: 640px) {
+                .container {
+                    max-width: 640px !important;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .container {
+                    max-width: 768px !important;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .container {
+                    max-width: 1024px !important;
+                }
+            }
+
+            @media (min-width: 1280px) {
+                .container {
+                    max-width: 1280px !important;
+                }
+            }
+
+            /* FIX: Group hover */
+            .group:hover .group-hover\:bg-green-200 {
+                background-color: #bbf7d0 !important;
+            }
+
+            .group:hover .group-hover\:text-green-600 {
+                color: #16a34a !important;
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
